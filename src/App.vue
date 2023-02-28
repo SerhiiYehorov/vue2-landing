@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   margin: 0 auto;
   box-sizing: border-box;
