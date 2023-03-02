@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="about__title">
-      <p class="about__title--text">About Us</p>
+      <p class="about__title--text">{{ mainTitle }}</p>
       <img
         class="about__title--img"
         src="@/assets/img/svg/branch.svg"
@@ -54,7 +54,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "AboutUs",
+
+  data() {
+    return {
+      mainTitle: "About Us",
+      lorem: "",
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

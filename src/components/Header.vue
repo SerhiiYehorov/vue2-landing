@@ -5,16 +5,18 @@
         <img src="@/assets/img/svg/logo.svg" alt="logo" />
       </div>
       <div class="heading__text">
-        <span class="heading__text--main">Round Rock</span>
-        <span class="heading__text--sec">Yard Maintenance</span>
+        <span class="heading__text--main">{{ titleMain }}</span>
+        <span class="heading__text--sec">{{ titleSec }}</span>
       </div>
     </div>
-    <div class="header__chips">Lorem Ipsum is simply dummy</div>
+    <div v-if="isChips" class="header__chips">{{ chipsText }}</div>
     <div class="header__text">
       <span>Lorem ipsum Lorem</span>
     </div>
     <div class="header__button">
-      <a class="header__button--link" href="#">Help Me</a>
+      <a @click="isChips = !isChips" class="header__button--link" href="#"
+        >Help Me</a
+      >
     </div>
   </div>
 </template>
@@ -22,6 +24,15 @@
 <script>
 export default {
   name: "Header",
+
+  data() {
+    return {
+      titleMain: "Round Rock",
+      titleSec: "Yard Maintenance",
+      chipsText: "Lorem Ipsum is simply dummy",
+      isChips: false,
+    };
+  },
 };
 </script>
 

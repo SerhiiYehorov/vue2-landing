@@ -1,61 +1,115 @@
 <template>
   <div class="contacts">
-    <div class="contacts__text">Contact Us</div>
+    <div class="contacts__text">{{ mainTitle }}</div>
 
     <div class="contacts__wrapper">
-      <form class="contacts__wrapper--input" action="#">
+      <div class="contacts__wrapper--input">
         <input
+          v-for="(input, index) in inputs"
           class="contact__input"
-          type="text"
-          name="name"
-          id="name"
-          placeholder=""
+          v-model="input.text"
+          :key="index"
+          :type="input.type"
+          :name="input.name"
+          :placeholder="input.placeholder"
         />
-        <input
-          class="contact__input"
-          type="email"
-          name="email"
-          id="email"
-          placeholder=""
-        />
-        <input
-          class="contact__input"
-          type="tel"
-          name="tel"
-          id="tel"
-          placeholder=""
-        />
-        <input class="contact__submit" type="submit" value="" />
-      </form>
+        <button class="contact__submit" @click="submit">Contact Me</button>
+      </div>
 
       <div class="contacts__wrapper--text">
-        <div class="contact__text">
-          <img
-            class="e-mail__logo"
-            src="@/assets/img/svg/mail.svg"
-            alt="mail logo"
-          />
-          <p>test@gmail.com</p>
-        </div>
-        <div class="contact__text">
-          <img class="" src="@/assets/img/svg/phone.svg" alt="phone logo" />
-          <p>(303) 555-0105</p>
-        </div>
-        <div class="contact__text">
-          <img
-            class=""
-            src="@/assets/img/svg/location.svg"
-            alt="location logo"
-          />
-          <p>2715 Ash Dr. San Jose, South Dakota 83475</p>
-        </div>
+        <template v-for="contact in contacts">
+          <a
+            v-if="contact.type !== address"
+            class="contact__text"
+            :key="contact.type"
+          >
+            <img :src="contact.src" :alt="contact.alt" />
+            <p>{{ contact.text }}</p>
+          </a>
+          <p v-else class="contact__text" :key="contact.type">
+            <img :src="contact.src" :alt="contact.alt" />
+            <span>{{ contact.text }}</span>
+          </p>
+        </template>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "ContactUs",
+  data() {
+    return {
+      mainTitle: "Contact Us",
+      phone: "(303) 555-0105",
+      address: "2715 Ash Dr. San Jose, South Dakota 83475",
+      email: "test@gmail.com",
+      placeholders: ["type your Name", "type your email", "type your number"],
+
+      contacts: [
+        {
+          src: require("@/assets/img/svg/mail.svg"),
+          alt: "mail logo",
+          text: "test@gmail.com",
+          type: "email",
+        },
+
+        {
+          src: require("@/assets/img/svg/phone.svg"),
+          alt: "phone logo",
+          text: "(303) 555-0105",
+          type: "phone",
+        },
+        {
+          src: require("@/assets/img/svg/location.svg"),
+          alt: "location logo",
+          text: "2715 Ash Dr. San Jose, South Dakota 83475",
+          type: "address",
+        },
+      ],
+
+      inputs: [
+        {
+          class: "contact__input",
+          type: "text",
+          name: "name",
+          id: "name",
+          placeholder: "type your Name",
+          text: "",
+        },
+        {
+          class: "contact__input",
+          type: "email",
+          name: "email",
+          id: "email",
+          placeholder: "type your email",
+          text: "",
+        },
+
+        {
+          class: "contact__input",
+          type: "tel",
+          name: "tel",
+          id: "tel",
+          placeholder: "type your number",
+          text: "",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    submit() {
+      const message = {
+        name: this.inputs[0].text,
+        email: this.inputs[1].text,
+        tel: this.inputs[2].text,
+      };
+      console.log(message);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -99,9 +153,11 @@ export default {};
   justify-content: start;
   padding: 0 20% 0;
   gap: 20px;
+  cursor: pointer;
 }
 
 .contact__input {
+  color: $text-color-third;
   background: #9fdea9;
   border: 1px solid transparent;
   height: 56px;
@@ -110,6 +166,9 @@ export default {};
   min-width: 310px;
   outline: none;
 
+  &::placeholder {
+    color: $text-color-main;
+  }
   &:focus {
     border: 1px solid green;
   }
@@ -136,6 +195,11 @@ export default {};
   }
 }
 
+input:-webkit-autofill {
+  -webkit-text-fill-color: $text-color-third;
+  -webkit-box-shadow: 0 0 0px 1000px #9fdea9 inset;
+}
+
 @media screen and (min-width: 768px) {
   .contacts__text {
     font-size: 64px;
@@ -153,3 +217,9 @@ export default {};
   }
 }
 </style>
+
+
+
+
+
+

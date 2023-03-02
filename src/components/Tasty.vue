@@ -1,7 +1,7 @@
 <template>
   <div class="testy">
     <div class="testy__title">
-      <p class="testy__title--text">Testymonials</p>
+      <p class="testy__title--text">{{ titleMain }}</p>
     </div>
 
     <div class="testy__cards">
@@ -97,7 +97,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Testymonials",
+  data() {
+    return {
+      titleMain: "Testymonials",
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

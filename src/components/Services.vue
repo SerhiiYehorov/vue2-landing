@@ -1,7 +1,7 @@
 <template>
   <div class="services">
     <div class="services__title">
-      <p class="services__title--text">Services</p>
+      <p class="services__title--text">{{ mainTitle }}</p>
       <img
         class="services__title--img"
         src="@/assets/img/svg/branch.svg"
@@ -59,7 +59,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Services",
+
+  data() {
+    return {
+      mainTitle: "Services",
+      cardTitle: "",
+      cardText: "",
+      cards: [],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
