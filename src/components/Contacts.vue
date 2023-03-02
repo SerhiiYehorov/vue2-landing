@@ -42,10 +42,6 @@ export default {
   data() {
     return {
       mainTitle: "Contact Us",
-      phone: "(303) 555-0105",
-      address: "2715 Ash Dr. San Jose, South Dakota 83475",
-      email: "test@gmail.com",
-      placeholders: ["type your Name", "type your email", "type your number"],
 
       contacts: [
         {
