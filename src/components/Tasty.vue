@@ -5,90 +5,20 @@
     </div>
 
     <div class="testy__cards">
-      <div class="testy__card">
+      <div class="testy__card" v-for="(card, id) in cards" :key="id">
         <div class="testy__card--photo">
-          <img src="@/assets/img/svg/avatar.svg" alt="avatar" />
+          <img :src="card.src" alt="avatar" />
         </div>
         <div class="testy__card--article">
-          <div class="card__article--header">Courtney Henry</div>
-          <div class="card__article--text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book
-          </div>
+          <div class="card__article--header">{{ card.header }}</div>
+          <div class="card__article--text">{{ card.text }}</div>
           <div class="card__article--star">
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-          </div>
-        </div>
-      </div>
-
-      <div class="testy__card">
-        <div class="testy__card--photo">
-          <img src="@/assets/img/svg/avatar.svg" alt="avatar" />
-        </div>
-        <div class="testy__card--article">
-          <div class="card__article--header">Courtney Henry</div>
-          <div class="card__article--text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book
-          </div>
-          <div class="card__article--star">
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-          </div>
-        </div>
-      </div>
-
-      <div class="testy__card">
-        <div class="testy__card--photo">
-          <img src="@/assets/img/svg/avatar.svg" alt="avatar" />
-        </div>
-        <div class="testy__card--article">
-          <div class="card__article--header">Courtney Henry</div>
-          <div class="card__article--text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book
-          </div>
-          <div class="card__article--star">
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-          </div>
-        </div>
-      </div>
-
-      <div class="testy__card">
-        <div class="testy__card--photo">
-          <img src="@/assets/img/svg/avatar.svg" alt="avatar" />
-        </div>
-        <div class="testy__card--article">
-          <div class="card__article--header">Courtney Henry</div>
-          <div class="card__article--text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book
-          </div>
-          <div class="card__article--star">
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
-            <img src="@/assets/img/svg/star.svg" alt="star" />
+            <img
+              :src="star"
+              alt="star"
+              v-for="(star, index) in card.stars"
+              :key="index"
+            />
           </div>
         </div>
       </div>
@@ -102,6 +32,81 @@ export default {
   data() {
     return {
       titleMain: "Testymonials",
+
+      cards: [
+        {
+          src: require("@/assets/img/svg/avatar.svg"),
+          header: "Courtney Henry",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          stars: [
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+          ],
+        },
+        {
+          src: require("@/assets/img/svg/avatar.svg"),
+          header: "Courtney Henry",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          stars: [
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+          ],
+        },
+        {
+          src: require("@/assets/img/svg/avatar.svg"),
+          header: "Courtney Henry",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          stars: [
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+          ],
+        },
+        {
+          src: require("@/assets/img/svg/avatar.svg"),
+          header: "Courtney Henry",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          stars: [
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+          ],
+        },
+        {
+          src: require("@/assets/img/svg/avatar.svg"),
+          header: "Courtney Henry",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          stars: [
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+          ],
+        },
+        {
+          src: require("@/assets/img/svg/avatar.svg"),
+          header: "Courtney Henry",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          stars: [
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+            require("@/assets/img/svg/star.svg"),
+          ],
+        },
+      ],
     };
   },
 };
@@ -167,6 +172,7 @@ export default {
 
   &--star {
     display: flex;
+    flex-direction: row;
     gap: 7px;
     justify-content: center;
   }

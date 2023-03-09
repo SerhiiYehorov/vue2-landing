@@ -8,47 +8,15 @@
         alt="green branch"
       />
     </div>
+
     <div class="services__cards">
-      <div class="services__card">
-        <img
-          class="services__card--img"
-          src="@/assets/img/png/card1.png"
-          alt="grass"
-        />
-        <span class="services__card--title">Lorem Ipsum</span>
-        <span class="services__card--text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled
+      <div class="services__card" v-for="(card, id) in cards" :key="id">
+        <img class="services__card--img" :src="card.src" :alt="card.alt" />
+        <span class="services__card--title">
+          {{ card.title }}
         </span>
-      </div>
-      <div class="services__card">
-        <img
-          class="services__card--img"
-          src="@/assets/img/png/card2.png"
-          alt="flowers"
-        />
-        <span class="services__card--title">Lorem Ipsum</span>
         <span class="services__card--text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled
-        </span>
-      </div>
-      <div class="services__card">
-        <img
-          class="services__card--img"
-          src="@/assets/img/png/card3.png"
-          alt="lawn"
-        />
-        <span class="services__card--title">Lorem Ipsum</span>
-        <span class="services__card--text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled
+          {{ card.text }}
         </span>
       </div>
     </div>
@@ -65,9 +33,27 @@ export default {
   data() {
     return {
       mainTitle: "Services",
-      cardTitle: "",
-      cardText: "",
-      cards: [],
+
+      cards: [
+        {
+          src: require("@/assets/img/png/card1.png"),
+          title: "Bom",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ",
+          alt: "grass",
+        },
+        {
+          src: require("@/assets/img/png/card2.png"),
+          title: "Bum",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ",
+          alt: "flowers",
+        },
+        {
+          src: require("@/assets/img/png/card3.png"),
+          title: "Bam",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ",
+          alt: "lawn",
+        },
+      ],
     };
   },
 };

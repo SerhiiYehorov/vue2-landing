@@ -19,7 +19,7 @@
       <div class="contacts__wrapper--text">
         <template v-for="contact in contacts">
           <a
-            v-if="contact.type !== address"
+            v-if="contact.type !== 'address'"
             class="contact__text"
             :key="contact.type"
           >
