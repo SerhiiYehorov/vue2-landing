@@ -1,5 +1,5 @@
 <template>
-  <div class="services">
+  <div class="services" id="services">
     <div class="services__title">
       <p class="services__title--text">{{ mainTitle }}</p>
       <img
@@ -10,7 +10,11 @@
     </div>
 
     <div class="services__cards">
-      <div class="services__card" v-for="(card, id) in cards" :key="id">
+      <div
+        :class="[!isLight ? 'services__card--dark' : '', 'services__card']"
+        v-for="(card, id) in cards"
+        :key="id"
+      >
         <img class="services__card--img" :src="card.src" :alt="card.alt" />
         <span class="services__card--title">
           {{ card.title }}
@@ -21,7 +25,12 @@
       </div>
     </div>
     <div class="services__button">
-      <a class="services__button--link" href="#"> Help Me </a>
+      <button
+        class="services__button--link"
+        @click.prevent="isLight = !isLight"
+      >
+        Change theme
+      </button>
     </div>
   </div>
 </template>
@@ -33,6 +42,7 @@ export default {
   data() {
     return {
       mainTitle: "Services",
+      isLight: true,
 
       cards: [
         {
@@ -94,6 +104,7 @@ export default {
   &__button {
     margin-top: 28px;
     box-shadow: 0px 16px 30px rgba(50, 175, 100, 0.15);
+    border-radius: 35px;
 
     &--link {
       padding: 22px 53px;
@@ -105,6 +116,7 @@ export default {
       line-height: 27px;
       font-weight: $text-l;
       box-shadow: 0px 16px 30px rgba(50, 175, 100, 0.15);
+      border-color: transparent;
 
       &:hover {
         color: $text-color-main;
@@ -127,6 +139,11 @@ export default {
   border-radius: 30px;
   color: $text-color-third;
 
+  &--dark {
+    color: white;
+    background-color: black;
+  }
+
   &--img {
     width: 300px;
     margin-bottom: 30px;
@@ -141,6 +158,7 @@ export default {
     font-size: 14px;
     line-height: 20px;
     font-weight: $text-xs;
+    margin-bottom: 10px;
   }
 }
 
